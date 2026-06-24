@@ -23,8 +23,8 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-  width: 220px;
-  height: 220px;
+  width: calc(220 / 1920 * 100vw);
+  height: calc(220 / 1440 * 100vh);
   cursor: grab;
 }
 
