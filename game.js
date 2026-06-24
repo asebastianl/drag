@@ -1,6 +1,11 @@
 const game = document.querySelector("#game");
 const sprite = document.querySelector("#dragSprite");
 
+const stageWidth = 1920;
+const stageHeight = 1440;
+const spriteWidth = 220;
+const spriteHeight = 220;
+
 const startPosition = {
   x: 850,
   y: 610,
@@ -9,16 +14,19 @@ const startPosition = {
 let position = { ...startPosition };
 let dragState = null;
 
-function fitGameToWindow() {
-  const viewportWidth = document.documentElement.clientWidth;
-  const viewportHeight = document.documentElement.clientHeight;
-  const scale = Math.min(viewportWidth / game.offsetWidth, viewportHeight / game.offsetHeight, 1);
-
-  game.style.transform = `translate(-50%, -50%) scale(${scale})`;
+function getScale() {
+  return {
+    x: game.clientWidth / stageWidth,
+    y: game.clientHeight / stageHeight,
+  };
 }
 
-function getStageScale() {
-  return game.getBoundingClientRect().width / game.offsetWidth;
+function renderSprite() {
+  const scale = getScale();
+
+  sprite.style.width = `${spriteWidth * scale.x}px`;
+  sprite.style.height = `${spriteHeight * scale.y}px`;
+  sprite.style.transform = `translate3d(${position.x * scale.x}px, ${position.y * scale.y}px, 0)`;
 }
 
 function clamp(value, min, max) {
@@ -27,20 +35,20 @@ function clamp(value, min, max) {
 
 function setSpritePosition(x, y) {
   position = {
-    x: clamp(x, 0, game.offsetWidth - sprite.offsetWidth),
-    y: clamp(y, 0, game.offsetHeight - sprite.offsetHeight),
+    x: clamp(x, 0, stageWidth - spriteWidth),
+    y: clamp(y, 0, stageHeight - spriteHeight),
   };
 
-  sprite.style.transform = `translate3d(${position.x}px, ${position.y}px, 0)`;
+  renderSprite();
 }
 
 function getPointerStagePosition(event) {
   const rect = game.getBoundingClientRect();
-  const scale = getStageScale();
+  const scale = getScale();
 
   return {
-    x: (event.clientX - rect.left) / scale,
-    y: (event.clientY - rect.top) / scale,
+    x: (event.clientX - rect.left) / scale.x,
+    y: (event.clientY - rect.top) / scale.y,
   };
 }
 
@@ -80,11 +88,10 @@ sprite.addEventListener("pointermove", moveDrag);
 sprite.addEventListener("pointerup", endDrag);
 sprite.addEventListener("pointercancel", endDrag);
 
-window.addEventListener("resize", fitGameToWindow);
+window.addEventListener("resize", renderSprite);
 
 if (window.visualViewport) {
-  window.visualViewport.addEventListener("resize", fitGameToWindow);
+  window.visualViewport.addEventListener("resize", renderSprite);
 }
 
-fitGameToWindow();
 setSpritePosition(startPosition.x, startPosition.y);

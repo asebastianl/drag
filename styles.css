@@ -12,13 +12,10 @@ body {
 }
 
 #game {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 1920px;
-  height: 1440px;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
-  transform-origin: center;
   touch-action: none;
 }
 
