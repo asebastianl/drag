@@ -3,7 +3,7 @@ const sprite = document.querySelector("#dragSprite");
 
 const startPosition = {
   x: 850,
-  y: 430,
+  y: 610,
 };
 
 let position = { ...startPosition };
