@@ -10,8 +10,11 @@ let position = { ...startPosition };
 let dragState = null;
 
 function fitGameToWindow() {
-  const scale = Math.min(window.innerWidth / game.offsetWidth, window.innerHeight / game.offsetHeight, 1);
-  game.style.transform = `scale(${scale})`;
+  const viewportWidth = document.documentElement.clientWidth;
+  const viewportHeight = document.documentElement.clientHeight;
+  const scale = Math.min(viewportWidth / game.offsetWidth, viewportHeight / game.offsetHeight, 1);
+
+  game.style.transform = `translate(-50%, -50%) scale(${scale})`;
 }
 
 function getStageScale() {
@@ -78,6 +81,10 @@ sprite.addEventListener("pointerup", endDrag);
 sprite.addEventListener("pointercancel", endDrag);
 
 window.addEventListener("resize", fitGameToWindow);
+
+if (window.visualViewport) {
+  window.visualViewport.addEventListener("resize", fitGameToWindow);
+}
 
 fitGameToWindow();
 setSpritePosition(startPosition.x, startPosition.y);
