@@ -90,3 +90,37 @@
   background: var(--primary);
   color: var(--secondary);
 }
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  border: 2px solid var(--primary);
+}
+
+.game-cell {
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--primary);
+  background: var(--secondary);
+  color: var(--primary);
+  font-family: var(--app-font);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.game-cell:hover {
+  background: var(--primary);
+  color: var(--secondary);
+}
+
+.game-cell:disabled {
+  cursor: default;
+}
+
+.game-cell:disabled:hover {
+  background: var(--secondary);
+  color: var(--primary);
+}
