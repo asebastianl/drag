@@ -1,45 +1,78 @@
-const textSnippets = {
-  1: "This is the first placeholder text snippet. It is long enough to test how body copy wraps inside the assigned grid area.",
-  2: "This is the second placeholder text snippet. It gives the screen a different amount of copy, which is useful when checking vertical alignment.",
-  3: "This is the third placeholder text snippet. It helps verify that changing content does not move the buttons or disturb the surrounding layout."
-};
+const statusElement = document.querySelector("[data-status]");
+const cells = Array.from(document.querySelectorAll("[data-cell]"));
+const resetButton = document.querySelector("[data-action='reset']");
 
-const copyElement = document.querySelector("[data-copy]");
-const snippetIds = Object.keys(textSnippets).map(Number);
-let currentSnippetIndex = 0;
+const winningLines = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6]
+];
 
-function renderSnippet() {
-  const snippetId = snippetIds[currentSnippetIndex];
-  copyElement.textContent = textSnippets[snippetId];
+let board = Array(9).fill("");
+let currentPlayer = "X";
+let gameOver = false;
+
+function getWinner() {
+  return winningLines.find(([a, b, c]) => {
+    return board[a] && board[a] === board[b] && board[a] === board[c];
+  });
 }
 
-function showPreviousSnippet() {
-  currentSnippetIndex =
-    (currentSnippetIndex - 1 + snippetIds.length) % snippetIds.length;
-  renderSnippet();
-}
+function renderGame() {
+  const winningLine = getWinner();
+  const isDraw = !winningLine && board.every(Boolean);
 
-function showNextSnippet() {
-  currentSnippetIndex = (currentSnippetIndex + 1) % snippetIds.length;
-  renderSnippet();
-}
+  cells.forEach((cell, index) => {
+    cell.textContent = board[index];
+    cell.disabled = Boolean(board[index]) || gameOver;
+  });
 
-document.addEventListener("click", (event) => {
-  const button = event.target.closest("[data-action]");
-
-  if (!button || !copyElement) {
+  if (winningLine) {
+    statusElement.textContent = `${board[winningLine[0]]} wins!`;
+    gameOver = true;
+    cells.forEach((cell) => {
+      cell.disabled = true;
+    });
     return;
   }
 
-  if (button.dataset.action === "back") {
-    showPreviousSnippet();
+  if (isDraw) {
+    statusElement.textContent = "Draw!";
+    gameOver = true;
+    return;
   }
 
-  if (button.dataset.action === "continue") {
-    showNextSnippet();
+  statusElement.textContent = `${currentPlayer}'s turn`;
+}
+
+function playCell(index) {
+  if (board[index] || gameOver) {
+    return;
   }
+
+  board[index] = currentPlayer;
+  currentPlayer = currentPlayer === "X" ? "O" : "X";
+  renderGame();
+}
+
+function resetGame() {
+  board = Array(9).fill("");
+  currentPlayer = "X";
+  gameOver = false;
+  renderGame();
+}
+
+cells.forEach((cell) => {
+  cell.addEventListener("click", () => {
+    playCell(Number(cell.dataset.cell));
+  });
 });
 
-if (copyElement) {
-  renderSnippet();
-}
+resetButton.addEventListener("click", resetGame);
+
+renderGame();

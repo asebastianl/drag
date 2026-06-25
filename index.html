@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Normal Iframe App Template</title>
+    <title>Tic Tac Toe Template</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -11,15 +11,26 @@
       <section class="app" aria-label="Native app boundary">
         <div class="screen">
           <header class="topbar place-header">
-            <h1 class="text text-heading">Embedded content template</h1>
+            <h1 class="text text-heading">Tic Tac Toe</h1>
           </header>
 
           <main class="content">
-            <img class="image place-image" src="images/Logo_EPN.svg" alt="Entry Point North">
-            <p class="text text-body place-text" data-copy></p>
+            <p class="text text-large place-status" data-status></p>
+
+            <div class="game-board place-board" data-board aria-label="Tic tac toe board">
+              <button class="game-cell" data-cell="0" type="button" aria-label="Cell 1"></button>
+              <button class="game-cell" data-cell="1" type="button" aria-label="Cell 2"></button>
+              <button class="game-cell" data-cell="2" type="button" aria-label="Cell 3"></button>
+              <button class="game-cell" data-cell="3" type="button" aria-label="Cell 4"></button>
+              <button class="game-cell" data-cell="4" type="button" aria-label="Cell 5"></button>
+              <button class="game-cell" data-cell="5" type="button" aria-label="Cell 6"></button>
+              <button class="game-cell" data-cell="6" type="button" aria-label="Cell 7"></button>
+              <button class="game-cell" data-cell="7" type="button" aria-label="Cell 8"></button>
+              <button class="game-cell" data-cell="8" type="button" aria-label="Cell 9"></button>
+            </div>
+
             <div class="row place-buttons">
-              <button class="button button-primary" data-action="back" type="button">Back</button>
-              <button class="button button-primary" data-action="continue" type="button">Continue</button>
+              <button class="button button-primary" data-action="reset" type="button">Reset</button>
             </div>
           </main>
         </div>

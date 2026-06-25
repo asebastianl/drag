@@ -1,6 +1,6 @@
-# Normal Iframe App Template
+# Tic Tac Toe Iframe Template
 
-Minimal static template for apps embedded inside normal-sized iframes.
+Minimal static tic-tac-toe app for testing interactive content inside normal-sized iframes.
 
 ## Files
 
@@ -8,7 +8,7 @@ Minimal static template for apps embedded inside normal-sized iframes.
 - `css/theme.css` contains fonts, colors, dimensions, and reusable variables.
 - `css/base.css` contains document defaults, the iframe shell, native app frame, grid, and layout utilities.
 - `css/components.css` contains reusable UI components.
-- `css/layout.css` contains placement classes for the current screen.
+- `css/layout.css` contains placement classes for the current game screen.
 
 ## Size Model
 
@@ -38,10 +38,14 @@ The template uses a 12 column by 9 row grid inside `.screen`. Component classes 
 - `.stack` for vertical spacing
 - `.row` for horizontal button groups
 - `.center` for centered content
-- `.place-header`, `.place-media`, `.place-copy`, and `.place-actions` for example placements
+- `.place-header`, `.place-status`, `.place-board`, and `.place-buttons` for game screen placements
 - `.text` with `.text-title`, `.text-heading`, `.text-subheading`, `.text-large`, `.text-body`, `.text-text`, or `.text-footnote` for text styles
 - `.button`, `.button-primary`, and `.button-secondary` for actions
 - `.image` for responsive images
+
+## Game Logic
+
+`app.js` contains the tic-tac-toe state, win checks, turn switching, and reset behavior.
 
 ## Font
 
