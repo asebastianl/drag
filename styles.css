@@ -13,8 +13,8 @@ body {
 
 #game {
   position: relative;
-  width: 1920px;
-  height: 1440px;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
   touch-action: none;
 }
@@ -23,8 +23,8 @@ body {
   position: absolute;
   inset: 0;
   display: grid;
-  grid-template-columns: repeat(16, 120px);
-  grid-template-rows: repeat(12, 120px);
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(12, 1fr);
   border: 2px solid #f00;
   pointer-events: none;
 }
