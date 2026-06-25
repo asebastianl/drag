@@ -2,6 +2,14 @@
 
 Minimal static template for apps embedded inside normal-sized iframes.
 
+## Files
+
+- `styles.css` imports the CSS modules.
+- `css/theme.css` contains fonts, colors, dimensions, and reusable variables.
+- `css/base.css` contains document defaults, the iframe shell, native app frame, grid, and layout utilities.
+- `css/components.css` contains reusable UI components.
+- `css/layout.css` contains placement classes for the current screen.
+
 ## Size Model
 
 - The iframe host can provide any outer size.
@@ -14,13 +22,15 @@ Minimal static template for apps embedded inside normal-sized iframes.
 - Native app size: `752px` by `564px`
 - Font: MADE Tommy Soft, with system fallbacks
 - Background: white
-- Border: visible app boundary for embedding tests
+- Border: controlled separately with `--border`
+- Primary color: `--primary`, used for foreground and active UI
+- Secondary color: `--secondary`, used for backgrounds and inverse UI
 
-Change `--native-width` and `--native-height` in `styles.css` when starting a template variant.
+Change `--native-width` and `--native-height` in `css/theme.css` when starting a template variant.
 
 ## GUI Helpers
 
-The template uses a 12 column by 9 row grid inside `.screen`.
+The template uses a 12 column by 9 row grid inside `.screen`. Component classes describe what an element is. Placement classes describe where it sits.
 
 - `.screen` for the native app canvas and grid
 - `.topbar` for a centered header row
@@ -28,9 +38,9 @@ The template uses a 12 column by 9 row grid inside `.screen`.
 - `.stack` for vertical spacing
 - `.row` for horizontal button groups
 - `.center` for centered content
-- `.grid-header`, `.grid-media`, `.grid-copy`, and `.grid-actions` for example placements
+- `.place-header`, `.place-media`, `.place-copy`, and `.place-actions` for example placements
+- `.text` with `.text-title`, `.text-heading`, `.text-subheading`, `.text-large`, `.text-body`, `.text-text`, or `.text-footnote` for text styles
 - `.button`, `.button-primary`, and `.button-secondary` for actions
-- `.media-frame` for image placeholders
 - `.image` for responsive images
 
 ## Font

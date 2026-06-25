@@ -10,19 +10,16 @@
     <main class="embed-shell" aria-label="Iframe app shell">
       <section class="app" aria-label="Native app boundary">
         <div class="screen">
-          <header class="topbar grid-header">
-            <h1 class="title">Embedded Content Template</h1>
+          <header class="topbar place-header">
+            <h1 class="text text-heading">Embedded content template</h1>
           </header>
 
           <main class="content">
-            <img class="image grid-media" src="images/Logo_EPN.svg" alt="Entry Point North">
-            <p class="body-text grid-copy">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-            </p>
-            <div class="row grid-actions">
-              <button class="button button-primary" type="button">Cancel</button>
-              <button class="button button-primary" type="button">Back</button>
-              <button class="button button-primary" type="button">Continue</button>
+            <img class="image place-image" src="images/Logo_EPN.svg" alt="Entry Point North">
+            <p class="text text-body place-text" data-copy></p>
+            <div class="row place-buttons">
+              <button class="button button-primary" data-action="back" type="button">Back</button>
+              <button class="button button-primary" data-action="continue" type="button">Continue</button>
             </div>
           </main>
         </div>
