@@ -1,0 +1,53 @@
+@font-face {
+  font-family: "MADE Tommy Soft";
+  src: url("../fonts/MADE%20Tommy%20Soft%20Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MADE Tommy Soft";
+  src: url("../fonts/MADE%20Tommy%20Soft%20Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MADE Tommy Soft";
+  src: url("../fonts/MADE%20Tommy%20Soft%20Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MADE Tommy Soft";
+  src: url("../fonts/MADE%20Tommy%20Soft%20Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --native-width: 752px;
+  --native-height: 564px;
+  --app-font: "MADE Tommy Soft", "Segoe UI", Arial, sans-serif;
+
+  --primary: #005e8e;
+  --secondary: #ffffff;
+
+  --embed-bg: var(--secondary);
+  --app-bg: var(--secondary);
+  --border: color-mix(in srgb, var(--primary) 0%, transparent);
+  --app-border: var(--border);
+  --text: var(--primary);
+  --surface: var(--secondary);
+  --grid-line: var(--border);
+  --grid-line-width: 2px;
+
+  --button-width: 128px;
+  --button-height: 44px;
+  --button-radius: 6px;
+}

@@ -1,0 +1,26 @@
+.place-header {
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+  align-self: stretch;
+}
+
+.place-image {
+  grid-column: 5 / 9;
+  grid-row: 3 / 6;
+  align-self: stretch;
+  justify-self: stretch;
+}
+
+.place-text {
+  grid-column: 3 / 11;
+  grid-row: 6 / 8;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+}
+
+.place-buttons {
+  grid-column: 1 / -1;
+  grid-row: 8 / 9;
+  align-self: center;
+}
