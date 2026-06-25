@@ -1,22 +1,22 @@
 .place-header {
   grid-column: 1 / -1;
-  grid-row: 2 / 3;
+  grid-row: 1 / 2;
   align-self: stretch;
 }
 
-.place-image {
-  grid-column: 5 / 9;
-  grid-row: 3 / 6;
-  align-self: stretch;
-  justify-self: stretch;
-}
-
-.place-text {
+.place-status {
   grid-column: 3 / 11;
-  grid-row: 6 / 8;
+  grid-row: 2 / 3;
   align-self: center;
   justify-self: center;
   text-align: center;
+}
+
+.place-board {
+  grid-column: 4 / 10;
+  grid-row: 3 / 8;
+  align-self: stretch;
+  justify-self: stretch;
 }
 
 .place-buttons {
