@@ -40,7 +40,7 @@
 
   --embed-bg: var(--secondary);
   --app-bg: var(--secondary);
-  --border: color-mix(in srgb, var(--primary) 10%, transparent);
+  --border: color-mix(in srgb, var(--primary) 0%, transparent);
   --app-border: var(--border);
   --text: var(--primary);
   --surface: var(--secondary);
