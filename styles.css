@@ -7,15 +7,22 @@ body {
   background: #000;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   position: relative;
 }
 
 #game {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1920px;
+  height: 1440px;
   overflow: hidden;
+  transform-origin: center;
   touch-action: none;
 }
 
@@ -23,9 +30,10 @@ body {
   position: absolute;
   inset: 0;
   display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  grid-template-rows: repeat(12, 1fr);
-  border: 2px solid #f00;
+  grid-template-columns: repeat(16, 120px);
+  grid-template-rows: repeat(12, 120px);
+  outline: 2px solid #f00;
+  outline-offset: -2px;
   pointer-events: none;
 }
 
