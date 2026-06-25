@@ -1,57 +1,38 @@
-html,
-body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  overflow: hidden;
-  background: #000;
+:root {
+  --app-width: 752px;
+  --app-height: 564px;
+  --frame-bg: #e6edf5;
+  --app-bg: #ffffff;
+  --app-border: #1f2937;
 }
 
 * {
   box-sizing: border-box;
 }
 
+html,
 body {
-  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
 }
 
-#game {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 768px;
-  height: 576px;
-  overflow: hidden;
-  touch-action: none;
+body {
+  background: var(--frame-bg);
+  font-family: Arial, sans-serif;
 }
 
-#grid {
-  position: absolute;
-  inset: 0;
+.embed-frame {
+  width: 100vw;
+  height: 100vh;
   display: grid;
-  grid-template-columns: repeat(16, 48px);
-  grid-template-rows: repeat(12, 48px);
-  outline: 2px solid #f00;
-  outline-offset: -2px;
-  pointer-events: none;
+  place-items: center;
+  background: var(--frame-bg);
 }
 
-.grid-cell {
-  border: 1px solid #333;
-  color: #777;
-  font: 10px Arial, Helvetica, sans-serif;
-  padding: 3px;
-}
-
-#dragSprite {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 88px;
-  height: 88px;
-  cursor: grab;
-}
-
-#dragSprite.is-dragging {
-  cursor: grabbing;
+.native-app {
+  width: var(--app-width);
+  height: var(--app-height);
+  background: var(--app-bg);
+  border: 2px solid var(--app-border);
 }
