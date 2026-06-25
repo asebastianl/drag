@@ -3,12 +3,31 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Drag App Embed Test</title>
+    <title>Normal Iframe App Template</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <main class="embed-frame" aria-label="Embedded app test frame">
-      <section class="native-app" aria-label="Native app boundary"></section>
+    <main class="embed-shell" aria-label="Iframe app shell">
+      <section class="app" aria-label="Native app boundary">
+        <div class="screen">
+          <header class="topbar">
+            <h1 class="title">Hello World!</h1>
+          </header>
+
+          <main class="content stack center">
+            <div class="media-frame" aria-hidden="true">
+              <span>Image</span>
+            </div>
+            <p class="body-text">
+              A simple starting point for text, images, and buttons inside the native app area.
+            </p>
+            <div class="row">
+              <button class="button button-secondary" type="button">Back</button>
+              <button class="button button-primary" type="button">Continue</button>
+            </div>
+          </main>
+        </div>
+      </section>
     </main>
     <script src="app.js"></script>
   </body>

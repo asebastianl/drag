@@ -1,1 +1,1 @@
-// Intentionally empty for the barebone embed test.
+// Entry point for template-specific JavaScript.
