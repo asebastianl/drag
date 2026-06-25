@@ -1,8 +1,10 @@
 const game = document.querySelector("#game");
 const sprite = document.querySelector("#dragSprite");
 
-const startX = 850 / 1920;
-const startY = 610 / 1440;
+const startPosition = {
+  x: 850,
+  y: 610,
+};
 
 let position = {
   x: 0,
@@ -39,7 +41,7 @@ function getPointerStagePosition(event) {
 }
 
 function setStartPosition() {
-  setSpritePosition(game.clientWidth * startX, game.clientHeight * startY);
+  setSpritePosition(startPosition.x, startPosition.y);
 }
 
 function startDrag(event) {
@@ -77,15 +79,5 @@ sprite.addEventListener("pointerdown", startDrag);
 sprite.addEventListener("pointermove", moveDrag);
 sprite.addEventListener("pointerup", endDrag);
 sprite.addEventListener("pointercancel", endDrag);
-
-window.addEventListener("resize", () => {
-  setSpritePosition(position.x, position.y);
-});
-
-if (window.visualViewport) {
-  window.visualViewport.addEventListener("resize", () => {
-    setSpritePosition(position.x, position.y);
-  });
-}
 
 setStartPosition();
