@@ -1,5 +1,6 @@
 const game = document.querySelector("#game");
 const sprite = document.querySelector("#dragSprite");
+const grid = document.querySelector("#grid");
 
 const startPosition = {
   x: 850,
@@ -11,6 +12,17 @@ let position = {
   y: 0,
 };
 let dragState = null;
+
+function createGrid() {
+  for (let row = 0; row < 12; row += 1) {
+    for (let column = 0; column < 16; column += 1) {
+      const cell = document.createElement("div");
+      cell.className = "grid-cell";
+      cell.textContent = `${column + 1},${row + 1}`;
+      grid.append(cell);
+    }
+  }
+}
 
 function renderSprite() {
   sprite.style.transform = `translate3d(${position.x}px, ${position.y}px, 0)`;
@@ -80,4 +92,5 @@ sprite.addEventListener("pointermove", moveDrag);
 sprite.addEventListener("pointerup", endDrag);
 sprite.addEventListener("pointercancel", endDrag);
 
+createGrid();
 setStartPosition();

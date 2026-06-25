@@ -19,6 +19,23 @@ body {
   touch-action: none;
 }
 
+#grid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(16, 120px);
+  grid-template-rows: repeat(12, 120px);
+  border: 2px solid #f00;
+  pointer-events: none;
+}
+
+.grid-cell {
+  border: 1px solid #333;
+  color: #777;
+  font: 18px Arial, Helvetica, sans-serif;
+  padding: 6px;
+}
+
 #dragSprite {
   position: absolute;
   left: 0;

@@ -7,12 +7,20 @@
     <style>
       html,
       body {
+        width: 100%;
+        height: 100%;
         margin: 0;
       }
 
+      body {
+        display: grid;
+        place-items: center;
+        background: #222;
+      }
+
       iframe {
-        width: 1920px;
-        height: 1440px;
+        width: min(100vw, 1920px);
+        aspect-ratio: 4 / 3;
         border: 0;
         display: block;
       }
