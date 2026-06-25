@@ -17,12 +17,12 @@ body {
 
 #game {
   position: absolute;
-  left: 50%;
-  top: 50%;
+  left: 0;
+  top: 0;
   width: 1920px;
   height: 1440px;
   overflow: hidden;
-  transform-origin: center;
+  transform-origin: top left;
   touch-action: none;
 }
 

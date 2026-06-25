@@ -31,8 +31,12 @@ function fitGameToIframe() {
   const viewportWidth = document.documentElement.clientWidth;
   const viewportHeight = document.documentElement.clientHeight;
   const scale = Math.min(viewportWidth / stageWidth, viewportHeight / stageHeight);
+  const left = (viewportWidth - stageWidth * scale) / 2;
+  const top = (viewportHeight - stageHeight * scale) / 2;
 
-  game.style.transform = `translate(-50%, -50%) scale(${scale})`;
+  game.style.left = `${left}px`;
+  game.style.top = `${top}px`;
+  game.style.transform = `scale(${scale})`;
 }
 
 function getGameScale() {
