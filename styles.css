@@ -19,10 +19,9 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-  width: 1920px;
-  height: 1440px;
+  width: 768px;
+  height: 576px;
   overflow: hidden;
-  transform-origin: top left;
   touch-action: none;
 }
 
@@ -30,8 +29,8 @@ body {
   position: absolute;
   inset: 0;
   display: grid;
-  grid-template-columns: repeat(16, 120px);
-  grid-template-rows: repeat(12, 120px);
+  grid-template-columns: repeat(16, 48px);
+  grid-template-rows: repeat(12, 48px);
   outline: 2px solid #f00;
   outline-offset: -2px;
   pointer-events: none;
@@ -40,16 +39,16 @@ body {
 .grid-cell {
   border: 1px solid #333;
   color: #777;
-  font: 18px Arial, Helvetica, sans-serif;
-  padding: 6px;
+  font: 10px Arial, Helvetica, sans-serif;
+  padding: 3px;
 }
 
 #dragSprite {
   position: absolute;
   left: 0;
   top: 0;
-  width: 220px;
-  height: 220px;
+  width: 88px;
+  height: 88px;
   cursor: grab;
 }
 

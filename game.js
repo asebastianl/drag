@@ -2,12 +2,9 @@ const game = document.querySelector("#game");
 const sprite = document.querySelector("#dragSprite");
 const grid = document.querySelector("#grid");
 
-const stageWidth = 1920;
-const stageHeight = 1440;
-
 const startPosition = {
-  x: 850,
-  y: 610,
+  x: 340,
+  y: 244,
 };
 
 let position = {
@@ -25,22 +22,6 @@ function createGrid() {
       grid.append(cell);
     }
   }
-}
-
-function fitGameToIframe() {
-  const viewportWidth = document.documentElement.clientWidth;
-  const viewportHeight = document.documentElement.clientHeight;
-  const scale = Math.min(viewportWidth / stageWidth, viewportHeight / stageHeight);
-  const left = (viewportWidth - stageWidth * scale) / 2;
-  const top = (viewportHeight - stageHeight * scale) / 2;
-
-  game.style.left = `${left}px`;
-  game.style.top = `${top}px`;
-  game.style.transform = `scale(${scale})`;
-}
-
-function getGameScale() {
-  return game.getBoundingClientRect().width / stageWidth;
 }
 
 function renderSprite() {
@@ -62,11 +43,10 @@ function setSpritePosition(x, y) {
 
 function getPointerStagePosition(event) {
   const rect = game.getBoundingClientRect();
-  const scale = getGameScale();
 
   return {
-    x: (event.clientX - rect.left) / scale,
-    y: (event.clientY - rect.top) / scale,
+    x: event.clientX - rect.left,
+    y: event.clientY - rect.top,
   };
 }
 
@@ -110,12 +90,5 @@ sprite.addEventListener("pointermove", moveDrag);
 sprite.addEventListener("pointerup", endDrag);
 sprite.addEventListener("pointercancel", endDrag);
 
-window.addEventListener("resize", fitGameToIframe);
-
-if (window.visualViewport) {
-  window.visualViewport.addEventListener("resize", fitGameToIframe);
-}
-
 createGrid();
-fitGameToIframe();
 setStartPosition();
